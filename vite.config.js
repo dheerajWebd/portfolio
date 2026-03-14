@@ -10,7 +10,7 @@ export default defineConfig({
     include: ["react", "react-dom"]
   }, 
   
-  base: '/portfolio/',
+  base: '/',
   server: {
     host: "0.0.0.0",
     port: 3000
