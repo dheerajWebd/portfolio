@@ -65,7 +65,7 @@ const Main = () => {
         <p>IN INDIA</p>
         <button className="text-xl text-[#282828] absolute ml-60 text-center bg-[#e9ff6b] block cursor-pointer p-3 border rounded-4xl hover:skew-6 hover:origin-center active:shadow-[inset_2px_0px_10px_0px_red,2px_0px_8px_0px_yellow] active:scale-[0.9] max-sm:ml-4 max-sm:text-[10px] md:ml-35">
           <RiDownload2Line className="inline mr-1.5 text-1xl" />
-          <a href="/portfolio/assets/Dhiraj_Kumar_Resume.pdf" download>
+          <a href="/assets/Dhiraj_Kumar_Resume.pdf" download>
             Resume
           </a>
         </button>

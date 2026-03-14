@@ -37,9 +37,9 @@ const My_work = () => {
           className={`grid grid-cols-2  max-sm:grid-cols-1 gap-17 max-sm:gap-y-5 `}
         >
           <MaskEffect
-            img="/portfolio/assets/fur.webp"
+            img="/assets/fur.webp"
             set={setbig}
-            data={"/portfolio/assets/fur.webp"}
+            data={" /assets/fur.webp"}
             setproject={setproject}
             setlinks={setprjectLinks}
             projectData={{
@@ -50,9 +50,9 @@ const My_work = () => {
           />
 
           <MaskEffect
-            img="/portfolio/assets/desiner.webp"
+            img=" /assets/desiner.webp"
             set={setbig}
-            data={"/portfolio/assets/desiner.webp"}
+            data={" /assets/desiner.webp"}
             setproject={setproject}
             setlinks={setprjectLinks}
             projectData={{
@@ -69,9 +69,9 @@ const My_work = () => {
           className={`grid grid-cols-2 max-sm:grid-cols-1 gap-17 max-sm:gap-y-5`}
         >
           <MaskEffect
-            img="/portfolio/assets/buld.webp"
+            img=" /assets/buld.webp"
             set={setbig}
-            data={"/portfolio/assets/buld.webp"}
+            data={" /assets/buld.webp"}
             setproject={setproject}
             setlinks={setprjectLinks}
             projectData={{
@@ -82,9 +82,9 @@ const My_work = () => {
           />
 
           <MaskEffect
-            img="/portfolio/assets/images.webp"
+            img=" /assets/images.webp"
             set={setbig}
-            data={"/portfolio/assets/images.webp"}
+            data={" /assets/images.webp"}
             setproject={setproject}
             setlinks={setprjectLinks}
             projectData={{
@@ -99,27 +99,27 @@ const My_work = () => {
           className={`grid grid-cols-2 max-sm:grid-cols-1 gap-17 max-sm:gap-y-5 `}
         >
           <MaskEffect
-            img="/portfolio/assets/primum.webp"
+            img=" /assets/primum.webp"
             set={setbig}
-            data={"/portfolio/assets/primum.webp"}
+            data={" /assets/primum.webp"}
             setproject={setproject}
             classes={"top-[50%]"}
             setlinks={setprjectLinks}
             projectData={{
-              liveLink: "https://dheeraj087.github.io/portfolio/",
-              githubLink: "https://github.com/dheeraj087/portfolio",
+              liveLink: "https://dheeraj087.github.io /",
+              githubLink: "https://github.com/dheeraj087 ",
               techStack: "React, Tailwind CSS, JavaScript, etc",
             }}
           />
 
           <MaskEffect
-            img="/portfolio/assets/image.webp"
+            img=" /assets/image.webp"
             set={setbig}
-            data={"/portfolio/assets/image.webp"}
+            data={" /assets/image.webp"}
             setproject={setproject}
             setlinks={setprjectLinks}
             projectData={{
-              liveLink: "https://dheeraj087.github.io/portfolio/",
+              liveLink: "https://dheeraj087.github.io /",
               githubLink: "https://github.com/dheeraj087/funny-calculator-",
               techStack: "HTML, CSS, JavaScript, etc",
             }}

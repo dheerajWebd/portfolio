@@ -183,13 +183,6 @@ const Header = () => {
 };
 export default Header;
 
-// git init
-// git add README.md
-// git commit -m "first commit"
-// git branch -M main
-// git remote add origin https://github.com/dheeraj087/portfolio.git
-// git push -u origin main */
-
 // import { useEffect, useState } from "react";
 // import { NavLink } from "react-router-dom";
 // import Mylogo from "./Mylogo.jsx";
