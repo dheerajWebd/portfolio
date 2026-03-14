@@ -10,7 +10,7 @@ import Footer from "./footer.jsx";
 function App() {
   return (
     <>
-      <BrowserRouter basename="/portfolio">
+      <BrowserRouter basename="/">
         <Header />
         {/* <OfflinePage /> */}
         <Routes>
