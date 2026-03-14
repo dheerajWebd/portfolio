@@ -3,7 +3,7 @@ import { Box, Box2 } from "./box";
 import { RiArrowDownCircleFill } from "react-icons/ri";
 import AboutLink from "./somePageCompnent";
 import { NavLink } from "react-router-dom";
-
+ 
 const skills = [
   { name: "Re", angle: 0 },
   { name: "Ta", angle: 45 },

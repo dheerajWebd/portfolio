@@ -1,7 +1,7 @@
 import {
   Curser,
   handleMouseEnter2,
-  handleMouseleave2,
+  handleMouseleave2, 
   handleMouseMove,
 } from "./somefunction";
 const Box = ({ icon = false, className }) => {

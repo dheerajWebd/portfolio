@@ -4,7 +4,7 @@ import My_work from "../camponent/Mywork";
 import Serves from "../camponent/Serves";
 import ContactForm from "../camponent/contant";
 // import OfflinePage from "../camponent/ofline";
-function HomePage() {
+function HomePage() { 
   return (
     <>
       <Main />

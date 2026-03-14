@@ -5,7 +5,7 @@ function Mediahook(quary) {
     useEffect(() => {
         let media3 = window.matchMedia(`(max-width: ${quary})`)
         const handelchange = () => (setmedai(media3.matches))
-        handelchange()
+        handelchange() 
         media3.addEventListener('change', handelchange())
         return () => media3.removeEventListener('change', handelchange())
     }, [])
