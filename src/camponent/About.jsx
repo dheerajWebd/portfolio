@@ -3,16 +3,77 @@ import { Box, Box2 } from "./box";
 import { RiArrowDownCircleFill } from "react-icons/ri";
 import AboutLink from "./somePageCompnent";
 import { NavLink } from "react-router-dom";
- 
+import { DiHtml5, DiJavascript, DiMongodb, DiNodejs, DiReact, DiRedis } from "react-icons/di";
+import { GrCss3 } from "react-icons/gr";
+import { Heart } from "lucide-react";
+import { MdJavascript } from "react-icons/md";
+import { SiExpress, SiRedis, SiTailwindcss } from "react-icons/si";
+import { FaDocker } from "react-icons/fa";
+
 const skills = [
-  { name: "Re", angle: 0 },
-  { name: "Ta", angle: 45 },
-  { name: "FL", angle: 90 },
-  { name: "Ai", angle: 135 },
-  { name: "Ps", angle: 180 },
-  { name: "HL", angle: 225 },
-  { name: "CS", angle: 270 },
-  { name: "JS", angle: 315 },
+  {
+    name: (
+      <DiHtml5 className="text-3xl animate-spin [animation-duration:20s]  text-yellow-300" />
+    ),
+    angle: 0,
+  },
+  {
+    name: (
+      <GrCss3 className="text-3xl text-blue-300 animate-spin [animation-duration:20s]" />
+    ),
+    angle: 36,
+  },
+  {
+    name: (
+      <MdJavascript
+        size={100}
+        className="text-3xl animate-spin [animation-duration:20s]  text-yellow-300"
+      />
+    ),
+    angle: 36 * 2,
+  },
+  {
+    name: (
+      <DiReact size={100} className="tetext-3xl animate-spin [animation-duration:20s]  text-blue-500" />
+    ),
+    angle: 36 * 3,
+  },
+  {
+    name: (  
+      <DiNodejs size={70}  className="tetext-3xl animate-spin [animation-duration:20s]  text-yellow-300" />
+    ),
+    angle: 36 * 4,
+  },
+  {
+    name: (
+      <SiExpress size={60} className="tetext-3xl animate-spin [animation-duration:20s]  text-yellow-300" />
+    ),
+    angle: 36 * 5,
+  },
+  {
+    name: (
+      <DiMongodb size={60} className="tetext-3xl animate-spin [animation-duration:20s]  text-green-400" />
+    ),
+    angle: 36 * 6,
+  },
+  { 
+    name: (
+      <FaDocker size={60} className="tetext-3xl animate-spin [animation-duration:20s]  text-blue-500" />
+    ),
+    angle: 36 * 7,
+  },  
+  {
+    name: (
+      <DiRedis size={60} className="tetext-3xl animate-spin [animation-duration:20s]  text-red-500" />
+    ),
+    angle: 36 * 8,
+  },
+  {
+    name: (
+      <SiTailwindcss size={60}  className="tetext-3xl animate-spin [animation-duration:20s]  text-blue-500" />
+    ),
+    angle: 36 * 9,
+  },
 ];
 
 const SkillsCircle = () => {
