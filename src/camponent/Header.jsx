@@ -1,6 +1,7 @@
-import { react, useEffect, useState } from "react";
+import { react, useEffect, useState, lazy, Suspense } from "react";
 import { Link, NavLink } from "react-router-dom";
-import Mylogo from "./Mylogo.jsx";
+
+const Mylogo = lazy(() => import("./Mylogo.jsx"));
 
 import { AiOutlineBars, AiOutlineClose } from "react-icons/ai";
 
@@ -37,10 +38,12 @@ const Header = () => {
                 isActive ? "text-white" : "text-[#E5F48C]"
               }
             >
-              <Mylogo
+              <Suspense fallback={"..."}>
+                <Mylogo
                 yourlatter={data}
                 className="flex grow-0.4 relative z-20"
               />
+              </Suspense>
             </NavLink>
 
             <button

@@ -1,15 +1,36 @@
-import React, { useRef, useState } from "react";
-import { Box, Box2 } from "./box";
+import React, { lazy, useRef, useState } from "react";
 import { RiArrowDownCircleFill } from "react-icons/ri";
-import AboutLink from "./somePageCompnent";
+
 import { NavLink } from "react-router-dom";
-import { DiHtml5, DiJavascript, DiMongodb, DiNodejs, DiReact, DiRedis } from "react-icons/di";
+import {
+  DiHtml5,
+  DiJavascript,
+  DiMongodb,
+  DiNodejs,
+  DiReact,
+  DiRedis,
+} from "react-icons/di";
 import { GrCss3 } from "react-icons/gr";
 import { Heart } from "lucide-react";
 import { MdJavascript } from "react-icons/md";
 import { SiExpress, SiRedis, SiTailwindcss } from "react-icons/si";
 import { FaDocker } from "react-icons/fa";
+import { FiFigma } from "react-icons/fi";
+import { LuFigma } from "react-icons/lu";
+import { Exprience } from "./somePageCompnent";
 
+const SkillsCircle = lazy(() => import("./SkillCrical"));
+const Box = lazy(() =>
+  import("./box").then((module) => ({
+    default: module.Box,
+  }))
+);
+const Box2 = lazy(() =>
+  import("./box").then((module) => ({
+    default: module.Box2,
+  }))
+);
+const AboutLink = lazy(() => import("./somePageCompnent"));
 const skills = [
   {
     name: (
@@ -34,84 +55,68 @@ const skills = [
   },
   {
     name: (
-      <DiReact size={100} className="tetext-3xl animate-spin [animation-duration:20s]  text-blue-500" />
+      <DiReact
+        size={100}
+        className="tetext-3xl animate-spin [animation-duration:20s]  text-blue-500"
+      />
     ),
     angle: 36 * 3,
   },
   {
-    name: (  
-      <DiNodejs size={70}  className="tetext-3xl animate-spin [animation-duration:20s]  text-yellow-300" />
+    name: (
+      <DiNodejs
+        size={70}
+        className="tetext-3xl animate-spin [animation-duration:20s]  text-yellow-300"
+      />
     ),
     angle: 36 * 4,
   },
   {
     name: (
-      <SiExpress size={60} className="tetext-3xl animate-spin [animation-duration:20s]  text-yellow-300" />
+      <SiExpress
+        size={60}
+        className="tetext-3xl animate-spin [animation-duration:20s]  text-yellow-300"
+      />
     ),
     angle: 36 * 5,
   },
   {
     name: (
-      <DiMongodb size={60} className="tetext-3xl animate-spin [animation-duration:20s]  text-green-400" />
+      <DiMongodb
+        size={60}
+        className="tetext-3xl animate-spin [animation-duration:20s]  text-green-400"
+      />
     ),
     angle: 36 * 6,
   },
-  { 
-    name: (
-      <FaDocker size={60} className="tetext-3xl animate-spin [animation-duration:20s]  text-blue-500" />
-    ),
-    angle: 36 * 7,
-  },  
   {
     name: (
-      <DiRedis size={60} className="tetext-3xl animate-spin [animation-duration:20s]  text-red-500" />
+      <FaDocker
+        size={60}
+        className="tetext-3xl animate-spin [animation-duration:20s]  text-blue-500"
+      />
+    ),
+    angle: 36 * 7,
+  },
+  {
+    name: (
+      <DiRedis
+        size={60}
+        className="tetext-3xl animate-spin [animation-duration:20s]  text-red-500"
+      />
     ),
     angle: 36 * 8,
   },
   {
     name: (
-      <SiTailwindcss size={60}  className="tetext-3xl animate-spin [animation-duration:20s]  text-blue-500" />
+      <SiTailwindcss
+        size={60}
+        className="tetext-3xl animate-spin [animation-duration:20s]  text-blue-500"
+      />
     ),
     angle: 36 * 9,
   },
 ];
-
-const SkillsCircle = () => {
-  return (
-    <div className="flex items-center justify-center bg-[#19191C] transform-3d perspective-distant relative h-[550px] rounded-2xl  border-[#51515193] border-solid border-[2px] w-[90%] m-auto mb-10 overflow-hidden">
-      <div
-        className="relative w-[300px] h-[300px] md:w-[400px] md:h-[400px] rounded-full bg-[#111]"
-        style={{ animation: "roto 20.2s infinite linear" }}
-      >
-        {/* Center Figma */}
-        <div className="absolute left-1/2 top-1/2 w-[90px] h-[90px] bg-red-500 text-white rounded-full flex items-center justify-center font-bold text-xl transform -translate-x-1/2 -translate-y-1/2 z-10 hover:scale-110 shadow-lg shadow-red-600">
-          Fi
-        </div>
-
-        {/* Orbit Skills */}
-        {skills.map((skill, index) => (
-          <div
-            key={index}
-            className="absolute w-[90px] h-[90px] bg-[#000] text-white rounded-full flex items-center justify-center font-semibold transition-transform hover:scale-110 shadow-md shadow-neutral-800 hover:shadow-blue-950"
-            style={{
-              top: "50%",
-              left: "50%",
-              transform: `
-                rotate(${skill.angle}deg) 
-                translateX(190px) 
-                rotate(-${skill.angle}deg)
-                translate(-50%, -50%)
-               
-              `,
-            }}
-          >
-            {skill.name}
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-};
 
 const About = ({ Extra, textCss }) => {
   const glowRefs = useRef([null]);
@@ -124,20 +129,21 @@ const About = ({ Extra, textCss }) => {
           </>
         )}
         <h2
-          className={`block font-[Audiowide] text-[#E5F48C] text-7xl max-sm:text-6xl ml-4 ${
+          className={`block font-[Audiowide] text-[#E5F48C] text-7xl max-sm:text-6xl ml-4 pl-15 max-sm:pl-5 ${
             textCss ? textCss : ""
           }`}
         >
           ABOUT
         </h2>
         <h2
-          className={`block font-[Audiowide] text-[#E5F48C] text-7xl ml-4 max-sm:text-6xl ${
+          className={`block font-[Audiowide] text-[#E5F48C] text-7xl ml-4 max-sm:text-6xl pl-15 max-sm:pl-5 ${
             textCss ? textCss : ""
           }`}
         >
           ME
         </h2>
         {/* ye exprience section hai */}
+
         <div className="w-[90%] max-w-6xl mx-auto my-10 h-auto max-sm:block flex gap-5 m-4">
           <Box
             icon={{
@@ -166,6 +172,8 @@ const About = ({ Extra, textCss }) => {
             }}
           />
         </div>
+          <Exprience />
+
         <SkillsCircle />
         <div className="w-[90%] m-auto ">
           <Box2

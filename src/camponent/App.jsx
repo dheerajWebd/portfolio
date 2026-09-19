@@ -1,18 +1,24 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import About from "./About.jsx";
-import Header from "./Header.jsx";
-import HomePage from "../somePagesOfwebsite/HomePage.jsx";
-import Serves from "./Serves.jsx";
-import ContactForm from "./contant.jsx"; 
-import My_work from "./Mywork.jsx"; 
-import Footer from "./footer.jsx";
 
+import { lazy, Suspense } from "react";
+import { GiArtificialIntelligence } from "react-icons/gi";
+import { GrTooltip } from "react-icons/gr";
 
+const About = lazy(() => import("./About.jsx"));
+const My_work = lazy(() => import("./Mywork"));
+const Serves = lazy(() => import("./Serves"));
+const Main = lazy(() => import("./main"));
+const ContactForm = lazy(() => import("./contant"));
+const Header = lazy(() => import("./Header"));
+const Footer = lazy(() => import("./Footer"));
+const HomePage = lazy(() => import("../somePagesOfwebsite/HomePage.jsx"));
 function App() {
   return (
     <>
       <BrowserRouter basename="/">
-        <Header />
+        <Suspense fallback={<>...</>}>
+          <Header />
+        </Suspense>
         {/* <OfflinePage /> */}
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -27,7 +33,9 @@ function App() {
           <Route path="/contant" element={<ContactForm />} />
           <Route path="/mywark" element={<My_work />} />
         </Routes>
+
         <Footer />
+      
       </BrowserRouter>
     </>
   );

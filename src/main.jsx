@@ -1,15 +1,15 @@
-import { StrictMode } from "react";
+import { lazy, StrictMode, Suspense } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
-import App from "./camponent/App.jsx";
-
+const App = lazy(() => import("./camponent/App.jsx"));
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <App />
+    <Suspense fallback={<>...</>}>
+      <App />
+    </Suspense>
   </StrictMode>
 );
-
 
 // echo "# myTube" >> README.md
 // git init

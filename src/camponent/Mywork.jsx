@@ -1,6 +1,13 @@
-import { useRef, useState } from "react";
+import { lazy, Suspense, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { MaskEffect, BigProject } from "./zoom";
+
+const MaskEffect = lazy(() =>
+  import("./zoom").then((module) => ({ default: module.MaskEffect }))
+);
+const BigProject = lazy(() =>
+  import("./zoom").then((module) => ({ default: module.BigProject }))
+);
+
 const My_work = () => {
   const reff = useRef(null);
   const [pos, setpos] = useState({ x: 0, y: 0 });
@@ -26,106 +33,110 @@ const My_work = () => {
         WORK
       </h2>
 
-      <BigProject
-        big={big}
-        setbig={setbig}
-        data={project}
-        projectData={prjectLinks}
-      />
-      <div className={`w-[90%] m-auto grid gap-15 max-sm:gap-y-5 `}>
-        <div
-          className={`grid grid-cols-2  max-sm:grid-cols-1 gap-17 max-sm:gap-y-5 `}
-        >
-          <MaskEffect
-            img="/assets/fur.webp"
-            set={setbig}
-            data={" /assets/fur.webp"}
-            setproject={setproject}
-            setlinks={setprjectLinks}
-            projectData={{
-              liveLink: "https://dheeraj087.github.io/weather-app/",
-              githubLink: "https://github.com/dheeraj087/weather-app",
-              techStack: "React, Tailwind CSS, JavaScript, API, etc",
-            }}
-          />
+      <Suspense fallback={<>...</>}>
+        <BigProject
+          big={big}
+          setbig={setbig}
+          data={project}
+          projectData={prjectLinks}
+        />
+      </Suspense>
+      <Suspense fallback={<>...</>}>
+        <div className={`w-[90%] m-auto grid gap-15 max-sm:gap-y-5 `}>
+          <div
+            className={`grid grid-cols-2  max-sm:grid-cols-1 gap-17 max-sm:gap-y-5 `}
+          >
+            <MaskEffect
+              img="/assets/fur.webp"
+              set={setbig}
+              data={" /assets/fur.webp"}
+              setproject={setproject}
+              setlinks={setprjectLinks}
+              projectData={{
+                liveLink: "https://dheeraj087.github.io/weather-app/",
+                githubLink: "https://github.com/dheeraj087/weather-app",
+                techStack: "React, Tailwind CSS, JavaScript, API, etc",
+              }}
+            />
 
-          <MaskEffect
-            img=" /assets/desiner.webp"
-            set={setbig}
-            data={" /assets/desiner.webp"}
-            setproject={setproject}
-            setlinks={setprjectLinks}
-            projectData={{
-              liveLink:
-                "https://dheeraj087.github.io/Video-editing-portfolio-/",
-              githubLink:
-                "https://github.com/dheeraj087/Video-editing-portfolio-",
-              techStack: "HTML, CSS, JavaScript, etc",
-            }}
-          />
+            <MaskEffect
+              img=" /assets/desiner.webp"
+              set={setbig}
+              data={" /assets/desiner.webp"}
+              setproject={setproject}
+              setlinks={setprjectLinks}
+              projectData={{
+                liveLink:
+                  "https://dheeraj087.github.io/Video-editing-portfolio-/",
+                githubLink:
+                  "https://github.com/dheeraj087/Video-editing-portfolio-",
+                techStack: "HTML, CSS, JavaScript, etc",
+              }}
+            />
+          </div>
+
+          <div
+            className={`grid grid-cols-2 max-sm:grid-cols-1 gap-17 max-sm:gap-y-5`}
+          >
+            <MaskEffect
+              img=" /assets/buld.webp"
+              set={setbig}
+              data={" /assets/buld.webp"}
+              setproject={setproject}
+              setlinks={setprjectLinks}
+              projectData={{
+                liveLink: "https://dheeraj087.github.io/todo-project-/",
+                githubLink: "https://github.com/dheeraj087/todo-project-",
+                techStack: "HTML, CSS, JavaScript, etc",
+              }}
+            />
+
+            <MaskEffect
+              img=" /assets/images.webp"
+              set={setbig}
+              data={" /assets/images.webp"}
+              setproject={setproject}
+              setlinks={setprjectLinks}
+              projectData={{
+                liveLink: "https://dheeraj087.github.io/funny-calculator-/",
+                githubLink: "https://github.com/dheeraj087/funny-calculator-",
+                techStack: "HTML, CSS, JavaScript, etc",
+              }}
+            />
+          </div>
+
+          <div
+            className={`grid grid-cols-2 max-sm:grid-cols-1 gap-17 max-sm:gap-y-5 `}
+          >
+            <MaskEffect
+              img=" /assets/primum.webp"
+              set={setbig}
+              data={" /assets/primum.webp"}
+              setproject={setproject}
+              classes={"top-[50%]"}
+              setlinks={setprjectLinks}
+              projectData={{
+                liveLink: "https://dheeraj087.github.io /",
+                githubLink: "https://github.com/dheeraj087 ",
+                techStack: "React, Tailwind CSS, JavaScript, etc",
+              }}
+            />
+
+            <MaskEffect
+              img=" /assets/image.webp"
+              set={setbig}
+              data={" /assets/image.webp"}
+              setproject={setproject}
+              setlinks={setprjectLinks}
+              projectData={{
+                liveLink: "https://dheeraj087.github.io /",
+                githubLink: "https://github.com/dheeraj087/funny-calculator-",
+                techStack: "HTML, CSS, JavaScript, etc",
+              }}
+            />
+          </div>
         </div>
-
-        <div
-          className={`grid grid-cols-2 max-sm:grid-cols-1 gap-17 max-sm:gap-y-5`}
-        >
-          <MaskEffect
-            img=" /assets/buld.webp"
-            set={setbig}
-            data={" /assets/buld.webp"}
-            setproject={setproject}
-            setlinks={setprjectLinks}
-            projectData={{
-              liveLink: "https://dheeraj087.github.io/todo-project-/",
-              githubLink: "https://github.com/dheeraj087/todo-project-",
-              techStack: "HTML, CSS, JavaScript, etc",
-            }}
-          />
-
-          <MaskEffect
-            img=" /assets/images.webp"
-            set={setbig}
-            data={" /assets/images.webp"}
-            setproject={setproject}
-            setlinks={setprjectLinks}
-            projectData={{
-              liveLink: "https://dheeraj087.github.io/funny-calculator-/",
-              githubLink: "https://github.com/dheeraj087/funny-calculator-",
-              techStack: "HTML, CSS, JavaScript, etc",
-            }}
-          />
-        </div>
-
-        <div
-          className={`grid grid-cols-2 max-sm:grid-cols-1 gap-17 max-sm:gap-y-5 `}
-        >
-          <MaskEffect
-            img=" /assets/primum.webp"
-            set={setbig}
-            data={" /assets/primum.webp"}
-            setproject={setproject}
-            classes={"top-[50%]"}
-            setlinks={setprjectLinks}
-            projectData={{
-              liveLink: "https://dheeraj087.github.io /",
-              githubLink: "https://github.com/dheeraj087 ",
-              techStack: "React, Tailwind CSS, JavaScript, etc",
-            }}
-          />
-
-          <MaskEffect
-            img=" /assets/image.webp"
-            set={setbig}
-            data={" /assets/image.webp"}
-            setproject={setproject}
-            setlinks={setprjectLinks}
-            projectData={{
-              liveLink: "https://dheeraj087.github.io /",
-              githubLink: "https://github.com/dheeraj087/funny-calculator-",
-              techStack: "HTML, CSS, JavaScript, etc",
-            }}
-          />
-        </div>
-      </div>
+      </Suspense>
     </>
   );
 };

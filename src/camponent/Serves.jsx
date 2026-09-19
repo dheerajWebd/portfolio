@@ -1,5 +1,5 @@
-import React, { useRef } from "react";
-import { Box, ServesBox, TestmonilBox } from "./box.jsx";
+import React, { lazy, Suspense, useRef } from "react";
+import { NavLink } from "react-router-dom";
 import { FaGem, FaMobileAlt } from "react-icons/fa";
 
 import {
@@ -9,9 +9,16 @@ import {
   RiStarFill,
   RiWindow2Line,
 } from "react-icons/ri";
-import ContactForm from "./contant.jsx";
-import FecuntalAskedQu from "./FecuntalAskedQu.jsx";
-import { NavLink } from "react-router-dom";
+
+const Box = lazy(() =>
+  import("./box.jsx").then((module) => ({ default: module.Box }))
+);
+const ServesBox = lazy(() =>
+  import("./box.jsx").then((module) => ({ default: module.ServesBox }))
+);
+const Testmonil = lazy(() => import("./serves/Testmonil.jsx"));
+const ContactForm = lazy(() => import("./contant.jsx"));
+const FecuntalAskedQu = lazy(() => import("./FecuntalAskedQu.jsx"));
 
 const Serves = ({ active }) => {
   const glowRefs = useRef([]);
@@ -154,54 +161,14 @@ const Serves = ({ active }) => {
           />
         </NavLink>
       </div>
-      {/* // TESTIMON IALS */}
 
-      <h2
-        className={`text-[72px] max-sm:text-5xl max-sm:leading-11 max-sm:pl-5 w-full overflow-hidden whitespace-break-spaces pl-15 text-left text-[#505050] leading-16 tracking-[-3px] font-normal mb-5 font-['Audiowide',"sain-serif"] max-sm:mt-[-120px] -mt-20`}
-      >
-        TESTIMON
-      </h2>
-      <h2
-        className={`text-[72px] max-sm:text-5xl max-sm:leading-11 max-sm:pl-5 w-full overflow-hidden whitespace-break-spaces pl-15 text-left text-[#505050] leading-18 tracking-[-3px] font-normal mb-5 font-['Audiowide',"sain-serif"] `}
-      >
-        IALS
-      </h2>
-      <div className="w-[90%] m-auto grid grid-cols-3 max-sm:grid-cols-1 max-sm:grid-rows-1 max-sm:gap-y-4 max-md:grid-rows-1 gap-x-10 max-lg:grid-cols-2 max-lg:gap-y-4">
-        <TestmonilBox
-          contant={{
-            work: "Developer",
-            name: "Ajay",
-            img: " /assets/ajay.webp",
-            workdis: "Ajay is a design genius!",
-            discription:
-              "This is unbelievable. He is too fast and he work with details. I will hire him again.Highly recommend!",
-            icon: <RiStarFill className=" text-2xl text-[#E6F48D]" />,
-          }}
-        />
-        <TestmonilBox
-          contant={{
-            work: "Designer",
-            name: "Adarsh",
-            img: " /assets/Adarsh.webp",
-            workdis: "Adarsh is a design genius!",
-            discription:
-              "Adarsh was a game-changer for our online store. They designed a websiti that perfectly captures our brand's identity",
-            icon: <RiStarFill className=" text-2xl text-[#E6F48D]" />,
-          }}
-        />
-        <TestmonilBox
-          contant={{
-            work: "Designer",
-            name: "Dheeraj dwivedi",
-            img: " /assets/dheeraj.webp",
-            workdis: "Dheeraj is a design genius!",
-            discription:
-              "Dheeraj was a game-changer for our online store. They designed a websiti that perfectly captures our brand's identity",
-            icon: <RiStarFill className=" text-2xl text-[#E6F48D]" />,
-          }}
-        />
-      </div>
-      <FecuntalAskedQu />
+      <Suspense fallback={<>...</>}>
+        <Testmonil />
+      </Suspense>
+
+      <Suspense fallback={<>...</>}>
+        <FecuntalAskedQu />
+      </Suspense>
     </>
   );
 };

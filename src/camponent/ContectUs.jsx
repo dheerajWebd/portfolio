@@ -1,5 +1,13 @@
 import React, { useRef } from "react";
-import { Box } from "./box";
+import { lazy } from "react";
+import { GiArtificialIntelligence } from "react-icons/gi";
+
+const Box = lazy(() =>
+  import("./box").then((module) => ({
+    default: module.Box,
+  }))
+);
+
 import { RiMailFill, RiTwitterFill, RiWhatsappFill } from "react-icons/ri";
 import { NavLink } from "react-router-dom";
 
@@ -12,11 +20,19 @@ function ContantUs() {
       >
         CONTACT
       </h2>
-      <h2
-        className={`text-[72px] max-sm:text-4xl max-sm:leading-9 max-sm:pl-5 w-full overflow-hidden whitespace-break-spaces pl-15 text-left text-[#505050] leading-18 tracking-[-3px] font-normal mb-5 font-['Audiowide',"sain-serif"] `}
-      >
-        ME
-      </h2>
+      <div className="flex w-fit ">
+        <h2
+          className={`text-[72px] max-sm:text-4xl max-sm:leading-9 max-sm:pl-5 w-full overflow-hidden whitespace-break-spaces pl-15 text-left text-[#505050] leading-18 tracking-[-3px] font-normal mb-5 font-['Audiowide',"sain-serif"] `}
+        >
+          ME
+        </h2>
+
+        <button className="text-xl  -ml-20 mt-3 w-70 h-12 animate-bounce flex active:scale-95 shadow-[0px_0px_20px_0px_green]/50 text-right items-center justify-center cursor-pointer  bg-neutral-400 rounded-sm font-serif text-[#000000] font-[400] ">
+          <GiArtificialIntelligence size={50} className />
+          <span> Ask about me </span>
+        </button>
+      </div>
+
       <div className="w-[90%] m-auto flex gap-5 mb-10">
         <NavLink
           to={"mailto:youremail@gmail.com"}

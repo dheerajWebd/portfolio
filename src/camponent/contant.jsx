@@ -1,12 +1,12 @@
-import React from "react";
-import ContectUs from "./ContectUs";
+import React, { lazy, Suspense } from "react";
+const ContectUs = lazy(() => import("./ContectUs"));
+
 const ContactForm = () => {
   return (
     <>
-        <ContectUs/>
+        <ContectUs />
       <div className="w-[90%] mx-auto p-6 mb-4 bg-[#1A1A1D] border border-[#595959] rounded-lg shadow-md text-white">
-     
-        <form className="flex flex-col space-y-4" >
+        <form className="flex flex-col space-y-4">
           <div>
             <label className="block mb-1 font-semibold">Name</label>
             <input

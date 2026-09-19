@@ -1,18 +1,19 @@
-import React, { useRef, useState } from "react";
+import React, { lazy, useRef, useState } from "react";
+import { NavLink } from "react-router-dom";
 import "../index.css";
 import { FaArrowAltCircleRight, FaFileDownload } from "react-icons/fa";
-import mean2 from "../asscts/mean2.webp";
-import man1 from "../asscts/man1.webp";
 import {
   RiDownload2Line,
   RiFacebookFill,
   RiInstagramFill,
   RiLinkedinFill,
 } from "react-icons/ri";
-
-import { Box } from "./box";
+import mean2 from "../asscts/mean2.webp";
+import man1 from "../asscts/man1.webp";
+const Box = lazy(() =>
+  import("./box").then((module) => ({ default: module.Box }))
+);
 import { Mediahook } from "../responsive hook/midea";
-import { NavLink } from "react-router-dom";
 
 const Main = () => {
   const imgRef = useRef(null);
