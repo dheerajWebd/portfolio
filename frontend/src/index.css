@@ -1,0 +1,61 @@
+@import "tailwindcss";
+@import "tailwindcss/utilities"; /* अब सिर्फ utilities होता है */
+
+body {
+  background-color: #161618;
+  scroll-behavior: smooth;
+}
+@keyframes roto {
+  to {
+    transform: rotate(0deg);
+  }
+  from {
+    transform: rotate(315deg);
+  }
+}
+
+.animate-gradient-x {
+  animation: lefty 4.5s linear infinite alternate;
+  backface-visibility: hidden;
+}
+.animation {
+  animation: left-right;
+  animation-timeline: view(0%);
+  animation-range: entry 100% 50%;
+}
+.scroll-animation {
+  animation: left-to-right 0.5s linear;
+  animation-timeline: view(0%);
+  animation-range: entry 0% top 20%;
+}
+
+@keyframes left-to-right {
+  from {
+    visibility: visible;
+    clip-path: ellipse(0% 0% at left);
+    background: linear-gradient(20deg, #0f172a, #1e3a8a, #9333ea, #facc15);
+  }
+  to {
+    visibility: visible;
+    clip-path: ellipse(100% 100% at center);
+    background: linear-gradient(20deg, #facc15, #9333ea, #1e3a8a, #0f172a);
+  }
+}
+@keyframes lefty {
+  from {
+    background-position: 0% 100%;
+  }
+  to {
+    background-position: 100% 50%;
+  }
+}
+@keyframes left-right {
+  from {
+    width: 0%;
+    opacity: 0.6;
+  }
+  to {
+    opacity: 1;
+    width: 85;
+  }
+}
