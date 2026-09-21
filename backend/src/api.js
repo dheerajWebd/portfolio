@@ -1,85 +1,81 @@
 import axios from "axios";
 
-export const api = async () => {
+const api = async () => {
   try {
     const response = await axios.post(
-      "https://integrate.api.nvidia.com/v1/chat/completions",
+      "https://api.groq.com/openai/v1/chat/completions",
       {
         messages: [
           {
+            role: "system",
+            content: `
+You are the AI assistant of Dheeraj Dwivedi, the creator of this website.
+
+Your job is to help visitors understand Dheeraj, his skills, projects, experience, education, and technical knowledge.
+
+About Dheeraj:
+- Name: Dheeraj Dwivedi
+- Education: BCA
+- Role: Web Developer / Software Developer
+- Main skills:
+  - HTML
+  - CSS
+  - JavaScript
+  - React.js
+  - Node.js
+  - Express.js
+  - MongoDB
+  - C++
+  - Data Structures and Algorithms
+  - Git and GitHub
+  - Docker
+  - REST APIs
+
+Rules:
+1. Answer visitors politely and professionally.
+2. Keep answers clear and easy to understand.
+3. If someone asks about Dheeraj's skills, explain the relevant skills.
+4. If someone asks about a skill that is not mentioned in the provided information, do not make up information.
+5. If you don't know something about Dheeraj, honestly say that the information is not available.
+6. You can describe Dheeraj's technical skills based only on the information provided.
+7. Do not claim that Dheeraj has professional experience with a technology unless it is provided in the information.
+8. For simple questions, give short answers.
+9. For technical questions, provide a useful explanation.
+10. Always refer to Dheeraj as the creator/developer of this website when relevant.
+            `,
+          },
+          {
             role: "user",
-            content: [
-              {
-                type: "text",
-                text: "What is the meaning of life?",
-              },
-            ],
+            content:
+              "Hi, what are the skills of Dheeraj Dwivedi, the creator of this website?",
           },
         ],
-        model: "moonshotai/kimi-k3",
-        max_tokens: 16384,
+
+        model: "openai/gpt-oss-120b",
         temperature: 1,
-        reasoning_effort: "max",
+        max_completion_tokens: 2048,
+        top_p: 1,
+        stream: false,
         seed: 0,
+        presence_penalty: 0,
+        frequency_penalty: 0,
+        reasoning_effort: "medium",
+        stop: null,
       },
       {
         headers: {
-          Authorization:
-            "Bearer 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",
+          Authorization: `Bearer ${process.env.GROQ_API_KEY}`,
           Accept: "application/json",
+          "Content-Type": "application/json",
         },
       }
     );
 
-    return response;
+    console.log(response.data);
+    return response.data;
   } catch (error) {
-    console.log(error.message);
-    return error;
+    console.error(error.response?.data || error.message);
   }
 };
 
-const response = await api();
-console.log(response);
-
-/* import axios from 'axios';
-
-
-const invokeUrl = "https://integrate.api.nvidia.com/v1/chat/completions";
-const stream = true;
-
-const headers = {
-  "Authorization": "Bearer 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",
-  "Accept": stream ? "text/event-stream" : "application/json"
-};
-
-async function main() {
-  const payload = {"messages":[{"role":"user","content":[{"type":"text","text":"What is in this image?"},{"type":"image_url","image_url":{"url":"https://assets.ngc.nvidia.com/products/api-catalog/phi-3-5-vision/example1b.jpg"}}]}],"model":"moonshotai/kimi-k3","max_tokens":16384,"seed":0,"stream":stream,"temperature":1,"reasoning_effort":"max"};
-
-  const response = await axios.post(invokeUrl, payload, {
-    headers: headers,
-    responseType: stream ? 'stream' : 'json'
-  });
-
-  if (stream) {
-    response.data.on('data', (chunk) => {
-      console.log(chunk.toString());
-    });
-  } else {
-    console.log(JSON.stringify(response.data));
-  }
-}
-
-main().catch(error => {
-  if (error.response) {
-    console.error(`HTTP ${error.response.status}`);
-    if (error.response.data?.on) {
-      error.response.data.on('data', (chunk) => console.error(chunk.toString()));
-    } else {
-      console.error(error.response.data);
-    }
-  } else {
-    console.error(error);
-  }
-});
-
- */
+export default api;

@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { lazy } from "react";
 import { GiArtificialIntelligence } from "react-icons/gi";
 
@@ -10,9 +10,11 @@ const Box = lazy(() =>
 
 import { RiMailFill, RiTwitterFill, RiWhatsappFill } from "react-icons/ri";
 import { NavLink } from "react-router-dom";
+import Ai from "../ai";
 
 function ContantUs() {
   const glowRefs = useRef([null]);
+  const [hide, sethide] = useState(true);
   return (
     <>
       <h2
@@ -27,12 +29,15 @@ function ContantUs() {
           ME
         </h2>
 
-        <button className="text-xl  -ml-20 mt-3 w-70 h-12 animate-bounce flex active:scale-95 shadow-[0px_0px_20px_0px_green]/50 text-right items-center justify-center cursor-pointer  bg-neutral-400 rounded-sm font-serif text-[#000000] font-[400] ">
+        <button
+          className="text-xl  -ml-20 mt-3 w-70 h-12 animate-bounce flex active:scale-95 shadow-[0px_0px_20px_0px_green]/50 text-right items-center justify-center cursor-pointer  bg-neutral-400 rounded-sm font-serif text-[#000000] font-[400] "
+          onClick={(e) => sethide(!hide)}
+        >
           <GiArtificialIntelligence size={50} className />
           <span> Ask about me </span>
         </button>
       </div>
-
+      {hide && <Ai sethide={sethide} />}
       <div className="w-[90%] m-auto flex gap-5 mb-10">
         <NavLink
           to={"mailto:youremail@gmail.com"}

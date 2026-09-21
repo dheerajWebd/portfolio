@@ -17,6 +17,7 @@
     "@tailwindcss/vite": "^4.1.8",
     "@tsparticles/engine": "^3.8.1",
     "@tsparticles/react": "^3.0.0",
+    "axios": "^1.20.0",
     "locomotive-scroll": "^4.1.4",
     "lucide-react": "^1.21.0",
     "react": "^19.1.0",
